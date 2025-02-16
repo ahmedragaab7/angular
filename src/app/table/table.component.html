@@ -1,0 +1,63 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>العميل</th>
+        <th>تاريخ التعيين</th>
+        <th>تاريخ الغاء التعيين</th>
+        <th>المسئول عن التعيين</th>
+        <th>الدقائق المحليه</th>
+        <th>الدقائق الدولية</th>
+        <th>المبلغ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>
+          <div class="client">
+            <img src="assets\imgs\company.png" alt="company" />
+            <span
+              (mouseenter)="showTooltip($event, contact.company)"
+              (mouseleave)="hideTooltip()"
+            >
+              {{ truncateText(contact.company, 3) }}
+              <div class="tooltip" *ngIf="isTooltipVisible">
+                {{ tooltipText }}
+              </div>
+            </span>
+          </div>
+        </td>
+        <td>{{ contact.startDate }}</td>
+        <td>{{ contact.endDate }}</td>
+        <td>
+          <span>
+            {{ contact.name }}
+          </span>
+        </td>
+        <td>{{ contact.localMin }}</td>
+        <td>{{ contact.globalMin }}</td>
+        <td>{{ contact.money }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination-container">
+    <div class="pagination-info">
+      <label for="rows">عرض</label>
+      <select id="rows">
+        <option>10</option>
+        <option>20</option>
+        <option>50</option>
+      </select>
+      <span>من أصل <strong>55</strong></span>
+    </div>
+    <div class="pagination">
+      <button class="arrow disabled">‹</button>
+      <button class="page active">1</button>
+      <button class="page">2</button>
+      <button class="page">3</button>
+      <button class="page">4</button>
+      <button class="page">5</button>
+      <button class="arrow">›</button>
+    </div>
+  </div>
+</div>

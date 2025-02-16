@@ -1,0 +1,84 @@
+<div class="header">
+  <div class="space-between">
+    <div class="flex-box">
+      <h3 class="phone">012345678910</h3>
+      <button class="btn">قيد الاستخدام</button>
+    </div>
+    <div class="icon-container" (click)="toggleDropdown()">
+      <img
+        src="assets\imgs\Primary.png"
+        alt="dot"
+        class="dot"
+        [class.active]="isDropdownOpen"
+      />
+      <ul class="dropdown" *ngIf="isDropdownOpen">
+        <li (click)="editNumber()">
+          <i class="fas fa-edit"></i>
+          <span>تعديل الرقم</span>
+        </li>
+        <li (click)="cancelClassification()">
+          <i class="fas fa-times-circle close"></i>
+          <span class="close">إلغاء التصنيف</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-container">
+    <div class="row">
+      <div class="info-box">
+        <span class="label">اسم البروتوكول</span>
+        <span class="value"> فودافون مصر </span>
+      </div>
+      <div class="info-box">
+        <span class="label">الدولة</span>
+        <div class="value with-icon">
+          <img src="assets\imgs\Jordan.png" alt="Jordan" />
+          <span> المملكة الأردنية الهاشمية </span>
+        </div>
+      </div>
+      <div class="info-box">
+        <span class="label">العميل الحالي</span>
+        <div class="value with-icon">
+          <img src="assets\imgs\company.png" alt="Saudi" />
+          <span
+            (mouseenter)="
+              showTooltip($event, 'الشركة الألمانية للإبادة الحشرية')
+            "
+            (mouseleave)="hideTooltip()"
+            [class.truncated]="
+              isTextTruncated('الشركة الألمانية للإبادة الحشرية', 3)
+            "
+          >
+            {{ truncateText("الشركة الألمانية للإبادة الحشرية", 3) }}
+            <div class="tooltip" *ngIf="isTooltipVisible">
+              {{ tooltipText }}
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="info-box">
+        <span class="label">عدد الإمتدادات</span>
+        <span class="value">09</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="info-box">
+        <span class="label">تاريخ آخر شحنة</span>
+        <span class="value">2024/12/29</span>
+      </div>
+      <div class="info-box">
+        <span class="label">الرصيد الحالي</span>
+        <span class="value">5000 ج.م</span>
+      </div>
+      <div class="info-box">
+        <span class="label">الرصيد المستخدم للعميل الحالي</span>
+        <span class="value">5000 ج.م</span>
+      </div>
+      <div class="info-box">
+        <span class="label">الرصيد المستخدم للرقم ككل</span>
+        <span class="value">5000 ج.م</span>
+      </div>
+    </div>
+  </div>
+</div>

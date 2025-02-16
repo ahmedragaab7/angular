@@ -1,0 +1,240 @@
+.table-container {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 0px 8px 10px 8px;
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+
+    img {
+      width: 26px;
+      height: 26px;
+      margin-left: 6px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+      &:first-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+      &:last-child {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+    }
+
+    thead {
+      tr {
+        background: #f4f5f7;
+        th {
+          padding: 12px;
+          text-align: right;
+          color: #6b7280;
+          font-size: 13px;
+
+          @media (max-width: 768px) {
+            font-size: 12px;
+            padding: 8px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 11px;
+            padding: 6px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background: #fff;
+        overflow: hidden;
+
+        td {
+          padding: 12px;
+          text-align: right;
+          font-size: 14px;
+          color: #1c1c28;
+
+          @media (max-width: 768px) {
+            font-size: 13px;
+            padding: 8px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 12px;
+            padding: 6px;
+          }
+
+          .client {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            img {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+
+              @media (max-width: 768px) {
+                width: 20px;
+                height: 20px;
+              }
+
+              @media (max-width: 480px) {
+                width: 18px;
+                height: 18px;
+              }
+            }
+
+            span {
+              position: relative;
+              cursor: pointer;
+
+              .tooltip {
+                position: absolute;
+                bottom: 100%;
+                left: -1;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                z-index: 1000;
+                display: none;
+              }
+
+              &:hover .tooltip {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 4px;
+    direction: ltr;
+
+    @media (max-width: 480px) {
+      gap: 2px;
+    }
+
+    .page,
+    .arrow {
+      border: none;
+      background: #fff;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      color: #666;
+      transition: 0.3s ease;
+
+      @media (max-width: 768px) {
+        padding: 4px 8px;
+        font-size: 13px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 3px 6px;
+        font-size: 12px;
+      }
+
+      &:hover {
+        background: #e0e0e0;
+      }
+
+      &.active {
+        background: rgba(62, 151, 255, 1);
+        color: white;
+      }
+
+      &.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .pagination-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+
+    select {
+      padding: 4px 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #fff;
+      font-size: 14px;
+
+      @media (max-width: 768px) {
+        padding: 3px 6px;
+        font-size: 13px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 2px 4px;
+        font-size: 12px;
+      }
+    }
+
+    strong {
+      margin-right: 8px;
+    }
+
+    #rows {
+      padding: 7px 8px;
+      direction: ltr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}
